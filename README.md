@@ -53,27 +53,6 @@ python analysis.py
 7. **Export.** Writes `output/customers.csv` and `output/city_counts.csv` without the pandas index.
 8. **Visualise.** `plot_distribution(counts, path, title)` saves horizontal bar charts, one by city and one by email TLD.
 
-## The data structure
-
-Each customer record is a nested dictionary:
-
-```
-id, name, username, email, phone, website   -> flat values
-address (dict)
-├── street, suite, city, zipcode
-└── geo (dict)
-    └── lat, lng                            -> strings in the API
-company (dict)
-└── name, catchPhrase, bs
-```
-
-The nested attributes are `address`, `address.geo` and `company`. The deepest value is reached with:
-
-```python
-customer["address"]["geo"]["lat"]
-```
-
-That is three levels deep. The API returns coordinates as strings, so they are converted with `float()`.
 
 ## Findings
 
